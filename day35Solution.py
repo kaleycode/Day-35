@@ -1,10 +1,12 @@
 import os, time
+
 toDoList = []
 def printList():
   print()
   for items in toDoList:
     print(items)
   print()
+  
 while True:
   menu = input("\tTo Do List Manager\nDo you want to view, add, edit, remove or delete the to do list?\n")
   if menu=="view":
