@@ -1,22 +1,34 @@
-print("\tTo Do List Manager: \n")
-myPartyList = []
+import os, time
+myList = []
 def printList():
-  print() 
+  print()
+  for items in myList:
+    print(items)
+    print()
+
 while True:
-  menu = input("Do you want to view, add or remove?\n")
+  menu = input("\tList\nDo you want to view, add, edit, remove or delete the list?\n")
   if menu == "add":
-    item = input("Who should I add to the party list?: ")
-    myPartyList.append(item)
+    item = input("What should I add to the list?: ")
+    myList.append(item)
   elif menu == "view":
-    for item in myPartyList:
-      print(item)
-    print() 
+    printList()
+  elif menu=="edit":
+    item = input("What do you want to edit?\n").title()
+    new = input("What do you want to change it to?\n").title()
+    for i in range(0,len(myList)):
+      if myList[i]==item:
+        myList[i]=new
+  elif menu=="delete":
+    myList = []
   elif menu == "remove":
-    item = input("Who should I remove from the party list?: ")
-    if item in myPartyList:
+    item = input("What should I remove from the list?: ")
+    if item in myList:
       yesOrNo = input("Are you sure you want to remove this?\n")
       if yesOrNo == "yes" or yesOrNo =="Yes":
-        myPartyList.remove(item)
+        myList.remove(item)
     else:
       print(f"{item} was not in the list")
-  printList()
+
+  time.sleep(1)
+  os.system("clear")
