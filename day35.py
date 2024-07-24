@@ -7,10 +7,12 @@ def printList():
     print()
 
 while True:
-  menu = input("\tList\nDo you want to view, add, edit, remove or delete the list?\n")
+  menu = input("\tMy List\nDo you want to view, add, edit, remove or delete the list?\n")
   if menu == "add":
-    item = input("What should I add to the list?: ")
-    myList.append(item)
+    item = input("What should I add to the list?: ").capitalize().strip()
+    if item not in myList:
+      myList.append(item)
+
   elif menu == "view":
     printList()
   elif menu=="edit":
@@ -19,8 +21,10 @@ while True:
     for i in range(0,len(myList)):
       if myList[i]==item:
         myList[i]=new
+
   elif menu=="delete":
     myList = []
+
   elif menu == "remove":
     item = input("What should I remove from the list?: ")
     if item in myList:
